@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DbApp"
+             mc:Ignorable="d"
+             x:Class="DbApp.MainPage"
+             x:DataType="vm:MainViewModel">
+
+    <StackLayout>
+
+        <Grid RowSpacing="15" ColumnSpacing="12">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Name:"
+                   FontAttributes="Bold"
+                   Grid.Column="0" Grid.Row="0" />
+
+            <Entry d:Text="Neville Nazerane"
+                   Text="{Binding AddEmployee.Name}"
+                   Grid.Column="1" Grid.Row="0" />
+
+            <Label Text="Age:"
+                   FontAttributes="Bold"
+                   Grid.Column="0" Grid.Row="1" />
+            
+            <Entry d:Text="44"
+                   Text="{Binding AddEmployee.Age}"
+                   Grid.Column="1" Grid.Row="1" />
+            
+            <Label Text="Date of Birth:"
+                   FontAttributes="Bold"
+                   Grid.Column="0" Grid.Row="2" />
+
+            <DatePicker Date="{Binding AddEmployee.DateOfBirth}"
+                   Grid.Column="1" Grid.Row="2" />
+
+            <Button Text="Add"
+                    Command="{Binding AddCMD}"
+                    Grid.ColumnSpan="2" Grid.Row="3" />
+        </Grid>
+        
+        <ListView ItemsSource="{Binding Employees}" 
+                  HasUnevenRows="False"
+                  SeparatorColor="Brown"
+                  SeparatorVisibility="Default" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell x:DataType="vm:Employee">
+                        <vm:EmployeeItem />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    
+    </StackLayout>
+
+</ContentPage>

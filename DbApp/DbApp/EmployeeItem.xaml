@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DbApp.EmployeeItem">
+    <Label>
+        <Label.FormattedText>
+            <FormattedString>
+                <FormattedString.Spans>
+                    <Span d:Text="Neville Nazerane" Text="{Binding Name}" />
+                    <Span Text=" (" />
+                    <Span FontAttributes="Bold" 
+                          Text="{Binding Age}" d:Text="55" />
+                    <Span Text=")" />
+                </FormattedString.Spans>
+            </FormattedString>
+        </Label.FormattedText>
+    </Label>
+    <Label >
+        <Label.FormattedText>
+            <FormattedString>
+                <FormattedString.Spans>
+                    <Span Text="Born on: " />
+                    <Span d:Text="29/43/2001" Text="{Binding DateOfBirth}" />
+                </FormattedString.Spans>
+            </FormattedString>
+        </Label.FormattedText>
+    </Label>
+
+</StackLayout>
